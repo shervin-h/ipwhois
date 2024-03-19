@@ -1,8 +1,5 @@
-/// Support for doing something awesome.
+/// Library for the finding ip and some information such as region, city, country, latitude, longitude.
 ///
-/// More dartdocs go here.
-library;
+library ipwhois;
 
 export 'src/ipwhois_base.dart';
-
-// TODO: Export any libraries intended for clients of this package.
