@@ -1,39 +1,52 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+![img](https://github.com/shervin-h/ipwhois/blob/main/assets/ipwhois.jpg)
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+# ipwhois
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
+By using `ipwhois` package, you can get information about the IP of your Internet connection.
+such as IP address v4 and v6, city name, country name, region, latitude and longitude, continent code, time zone, Internet provider organization ....
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+🌐 🛜 💻 📱
 
-## Features
+## Install Package
+add the following line to your `pubspec.yaml` under `dependencies`:
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+```yaml
+dependencies:
+  ipwhois: ^1.0.0
+```
+
+then run:
+
+```
+dart pub get
+```
+
+or
+
+```
+flutter pub get
+```
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+first import it
+```dart
+import 'package:ipwhois/ipwhois.dart';
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+now in your dart code, you can use:
 
 ```dart
-const like = 'sample';
+final resultV4 = await getMyIpInfo();
+print(resultV4); // ip: 5.200.119.128, continentCode: AS, country: Iran, countryCode: IR, countryCode3: IRN, region: Tehran, regionCode: 23, city: Tehran, latitude: 35.7108, longitude: 51.4274, timezone: Asia/Tehran, offset: 12600, asn: 57218, organization: Rightel Communication Service Company PJS
+
+final resultV6 = await getMyIpInfo(version: IpVersion.v6);
+print(resultV6); // null
 ```
 
-## Additional information
+### by Shervin Hassanzadeh
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+- shervin.hz07@gmail.com
+- [linked in](https://www.linkedin.com/in/shervin-hassanzadeh)

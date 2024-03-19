@@ -1,7 +1,9 @@
 name: ipwhois
-description: A starting point for Dart libraries or applications.
+description: A Dart package for retrieving some information about IP that is connected to the internet. such as  city & country name, continent code, latitude and longitude, IP v4 or v6.
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+homepage: https://github.com/shervin-h/ipwhois
+repository: https://github.com/shervin-h/ipwhois
+issue_tracker: https://github.com/shervin-h/ipwhois/issues
 
 environment:
   sdk: ^3.3.0
