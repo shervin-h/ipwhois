@@ -223,3 +223,51 @@ Future<IpInfo?> getMyIpInfo({IpVersion version = IpVersion.v4}) async {
     return null;
   }
 }
+
+/// ## [getMyIp] Function Documentation
+///
+/// The `getMyIp` function retrieves the user's public IP address from an external service.
+///
+/// Parameters:
+///
+/// - `version`: Specifies the IP version (IPv4 or IPv6). Defaults to IPv4.
+///
+/// Returns:
+///
+/// - A `Future` that resolves to a `String` representing the user's public IP address, or `null`
+///   if the request fails.
+///
+/// Usage Example:
+///
+/// ```dart
+/// final myIp = await getMyIp();
+/// if (myIp != null) {
+///   print('Your Public IP Address: $myIp');
+/// } else {
+///   print('Failed to fetch public IP address.');
+/// }
+/// ```
+///
+/// Notes:
+///
+/// - This function sends an HTTP GET request to the 'https://ip{version}.seeip.org' URL, where
+///   {version} is replaced with '4' or '6' based on the specified IP version.
+/// - The response from the service is expected to be the user's public IP address.
+/// - If the request is successful (HTTP status code 200) and the response body is not empty, the
+///   function returns the user's public IP address as a `String`. Otherwise, it returns `null`.
+/// - Any errors that occur during the HTTP request are caught and logged, and the function returns
+///   `null`.
+Future<String?> getMyIp({IpVersion version = IpVersion.v4}) async {
+  try {
+    final http.Response response =
+    await http.get(Uri.parse('https://ip${version.name}.seeip.org'));
+    if (response.statusCode == 200 && response.body.isNotEmpty) {
+      return response.body;
+    } else {
+      return null;
+    }
+  } catch (e) {
+    print(e.toString());
+    return null;
+  }
+}

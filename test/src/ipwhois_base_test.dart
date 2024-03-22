@@ -84,4 +84,26 @@ void main() {
       expect(result, isA<IpInfo?>());
     },
   );
+
+  test(
+    'should return desired String of IP v4',
+    () async {
+      /// ***** act ***** ///
+      final result = await getMyIp();
+
+      /// ***** assert ***** ///
+      expect(result, isA<String?>());
+    },
+  );
+
+  test(
+    'should return desired String of IP v6',
+        () async {
+      /// ***** act ***** ///
+      final result = await getMyIp(version: IpVersion.v6);
+
+      /// ***** assert ***** ///
+      expect(result, isA<String?>());
+    },
+  );
 }
